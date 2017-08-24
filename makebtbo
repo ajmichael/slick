@@ -1,0 +1,17 @@
+#makefile for bootboth, which runs the bootstrap for slfast with both planes
+
+SRCS = bootboth.c myrand.c
+
+OBJS = bootboth.o myrand.o
+
+INCL = /usr/include/stdio.h  /usr/include/math.h
+
+CFLAGS= 
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o bootboth ${OBJS} -lm
+
+bootboth.o: ${INCL}
+myrand.o: ${INCL}

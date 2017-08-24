@@ -1,0 +1,17 @@
+#makefile for bothplanes
+
+SRCS =  bothplanes.c stridip.c
+
+OBJS =  bothplanes.o stridip.o
+
+INCL = /usr/include/stdio.h /usr/include/math.h
+
+CFLAGS= 
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o bothplanes ${OBJS} -lm
+
+bothplanes.o: ${INCL}
+stridip.o: ${INCL}

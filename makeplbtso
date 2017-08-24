@@ -1,0 +1,18 @@
+#makefile for plotboots, which plots the bootstrap results for the
+#linear inversion
+
+SRCS = plotbootso.c sort.c 
+
+OBJS = plotbootso.o sort.o
+
+INCL = /usr/include/stdio.h  /usr/include/math.h
+
+CFLAGS= 
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o plotbootso ${OBJS} -lm
+
+plotbootso.o: ${INCL}
+sort.o: ${INCL}

@@ -1,0 +1,16 @@
+#makefile for data plotting program plata
+
+SRCS =  plata.c
+
+OBJS =  plata.o
+
+INCL = /usr/include/stdio.h
+
+CFLAGS= -O
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o plata ${OBJS}
+
+plata.o: ${INCL}

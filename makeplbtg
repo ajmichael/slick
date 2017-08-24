@@ -1,0 +1,20 @@
+#makefile for plotbootg, which plots the bootstrap results for the
+#grid search inversion
+
+SRCS = plotbootg.c sort.c dirplg.c draw_far.c
+
+OBJS = plotbootg.o sort.o dirplg.o draw_far.o
+
+INCL = /usr/include/stdio.h  /usr/include/math.h
+
+CFLAGS= 
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o plotbootg ${OBJS} -lm
+
+plotbootg.o: ${INCL}
+sort.o: ${INCL}
+dirplg.o: ${INCL}
+draw_far.o: ${INCL}

@@ -1,0 +1,17 @@
+#makefile for bootgrid, which runs the bootstrap for gridstrap
+
+SRCS = bootgrid.c myrand.c
+
+OBJS = bootgrid.o myrand.o
+
+INCL = /usr/include/stdio.h  /usr/include/math.h
+
+CFLAGS= 
+
+.c.o:; cc -c ${CFLAGS} $*.c
+
+a.out: ${OBJS} ${INCL}
+	cc ${CFLAGS} -o bootgrid ${OBJS} -lm
+
+bootgrid.o: ${INCL}
+myrand.o: ${INCL}
